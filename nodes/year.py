@@ -22,9 +22,7 @@ class YearNode(polyinterface.Node):
             {'driver': 'GV2', 'value': 0, 'uom': 17}, # dewpt high
             {'driver': 'GV3', 'value': 0, 'uom': 17}, # dewpt low
             {'driver': 'GV4', 'value': 0, 'uom': 17}, # heatidx high
-            {'driver': 'GV5', 'value': 0, 'uom': 17}, # heatidx low
-            {'driver': 'GV6', 'value': 0, 'uom': 17}, # windchill high
-            {'driver': 'GV7', 'value': 0, 'uom': 17}, # windchill low
+            {'driver': 'GV5', 'value': 0, 'uom': 17}, # windchill low
             {'driver': 'GV8', 'value': 0, 'uom': 22}, # humidity high
             {'driver': 'GV9', 'value': 0, 'uom': 22}, # humidity low
             {'driver': 'GV10', 'value': 0, 'uom': 23},  # pressure high
