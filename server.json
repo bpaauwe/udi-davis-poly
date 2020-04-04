@@ -4,9 +4,10 @@
     "type": "python3",
     "executable": "davis.py",
     "install": "install.sh",
-    "description": "Access weather data uploaded from a Davis weather station to Davis WeatherLink",
+	"install_cloud": "install_cloud.sh",
+    "description": "Pull weather data from Davis WeatherLink console uploads (Not WeatherLink Live)",
     "notice": "see http://www.davis.com for more information",
-    "shortPoll": "30",
+    "shortPoll": "60",
     "longPoll": "60",
     "profile_version": "1.0.0",
     "credits": [
@@ -14,7 +15,7 @@
     		"title": "Davis WeatherLink: A node server for Davis Weather Stations",
     		"author": "Bob Paauwe",
     		"version": "1.0.0",
-    		"date": "April 20, 2020",
+    		"date": "April 04, 2020",
     		"source": "https://github.com/bpaauwe/udi-davis-poly",
             "license": "https://github.com/bpaauwe/udi-davis-poly/LICENSE"
 		}
