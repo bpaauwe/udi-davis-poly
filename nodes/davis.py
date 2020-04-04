@@ -17,6 +17,7 @@ from nodes import day
 from nodes import month
 from nodes import year
 from nodes import uom
+from nodes import trend
 
 LOGGER = polyinterface.LOGGER
 
@@ -176,6 +177,8 @@ class Controller(polyinterface.Controller):
         # convert jdata['davis_current_observation']['pressure_tendency_string']
         # to a number for a UOM 25 index for pressure trend.
         #self.update_driver('GV16', trend)
+        trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
+        self.update_driver('GV16', trending)
         self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
 
 
