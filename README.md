@@ -5,7 +5,7 @@ This is the Davis WeatherLink Poly for the [Universal Devices ISY994i](https://w
 (c) 2020 Robert Paauwe
 MIT license.
 
-This node server is intended to support [Davis Weather Stations](http://www.davisinstruments.com/).
+This node server is intended to support [Davis Weather Stations](http://www.davisinstruments.com/).  This is for use with the WeatherLinkIP, the Serial/USB Data Logger with the WeatherLink Computer Software, or the Vantage Connect weather station solutions.  [API documentation](https://www.weatherlink.com/static/docs/APIdocumentation.pdf). 
 
 ## Installation
 
@@ -21,15 +21,19 @@ This node server is intended to support [Davis Weather Stations](http://www.davi
 The settings for this node are:
 
 #### Short Poll
-   * Not used
+   * How often to poll the Davis server
 #### Long Poll
    * Sends a heartbeat as DON/DOF
 #### Token
-     Your token that allows access to the data at api.weatherlink.com
-#### Station
-   * The Davis station ID.
+   * Your token that allows access to the data at api.weatherlink.com
+#### User
+   * Your user id that allows access to the data at api.wetherlink.com
+#### Password
+   * Your password that allows access to the data at api.wetherlink.com
 #### Units
-   * Display data in either 'metric', 'US', or 'UK' units.
+   * Display data in either 'metric', 'us' units. Note that day, month, year observations are only available in 'us' units per documentation.
+#### Station
+   * The Davis station ID. Not currently used.
 
 
 ## Requirements
@@ -52,5 +56,5 @@ The DavisWeatherLink nodeserver keeps track of the version number and when a pro
 
 # Release Notes
 
-- 1.0.0 04/15/2020
+- 1.0.0 04/04/2020
    - Initial version published to github
