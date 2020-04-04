@@ -24,7 +24,7 @@ def get_uom(units):
             'DEWPT': 4,     # dew point
             'SOLRAD': 74,   # solar radiation
             'RAINRT': 46,   # rain rate
-            'SPEED': 49,    # wind speed
+            'SPEED': 32,    # wind speed
             'DISTANC': 83,  # visibility (kilometers)
             'UV': 71,       # UV index
             'GV0': 4,       # max temp
@@ -40,7 +40,7 @@ def get_uom(units):
             'GV10': 117,    # pressure high
             'GV11': 117,    # pressure low
             'GV12': 82,     # rain
-            'GV13': 49,     # gusts
+            'GV13': 32,     # gusts
             'GV14': 22,     # N/A
             'GV15': 82,     # N/A
             'GV16': 25,     # pressure trend
