@@ -43,8 +43,6 @@
             <st id="GV3" editor="TEMPERATURE" />
             <st id="GV4" editor="TEMPERATURE" />
             <st id="GV5" editor="TEMPERATURE" />
-            <st id="GV6" editor="TEMPERATURE" />
-            <st id="GV7" editor="TEMPERATURE" />
             <st id="GV8" editor="PERCENT" />
             <st id="GV9" editor="PERCENT" />
             <st id="GV10" editor="PRESSURE" />
@@ -67,8 +65,6 @@
             <st id="GV3" editor="TEMPERATURE" />
             <st id="GV4" editor="TEMPERATURE" />
             <st id="GV5" editor="TEMPERATURE" />
-            <st id="GV6" editor="TEMPERATURE" />
-            <st id="GV7" editor="TEMPERATURE" />
             <st id="GV8" editor="PERCENT" />
             <st id="GV9" editor="PERCENT" />
             <st id="GV10" editor="PRESSURE" />
@@ -90,8 +86,6 @@
             <st id="GV3" editor="TEMPERATURE" />
             <st id="GV4" editor="TEMPERATURE" />
             <st id="GV5" editor="TEMPERATURE" />
-            <st id="GV6" editor="TEMPERATURE" />
-            <st id="GV7" editor="TEMPERATURE" />
             <st id="GV8" editor="PERCENT" />
             <st id="GV9" editor="PERCENT" />
             <st id="GV10" editor="PRESSURE" />
