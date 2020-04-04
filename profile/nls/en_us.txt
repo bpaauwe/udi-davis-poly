@@ -37,11 +37,11 @@ ST-cc-GV18-NAME = Chance of Rain
 ST-cc-GV19-NAME = Day
 ST-cc-GV20-NAME = Evapotranspiration
 
-ND-day-NAME = For the Day
+ND-day-NAME = Daily Observations
 ND-day-ICON = Weather
-ND-month-NAME = For the Month
+ND-month-NAME = Monthly Observations
 ND-month-ICON = Weather
-ND-year-NAME = For the Year
+ND-year-NAME = Yearly Observations
 ND-year-ICON = Weather
 ST-hst-GV0-NAME = High Temperature
 ST-hst-GV1-NAME = Low Temperature

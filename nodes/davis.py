@@ -110,15 +110,15 @@ class Controller(polyinterface.Controller):
 
     def discover(self, *args, **kwargs):
 
-        node = day.DayNode(self, self.address, 'day', 'For the Day')
+        node = day.DayNode(self, self.address, 'day', 'Daily Observations')
         node.SetUnits(self.params.get('Units'))
         self.addNode(node)
 
-        node = month.MonthNode(self, self.address, 'month', 'For the Month')
+        node = month.MonthNode(self, self.address, 'month', 'Month Observations')
         node.SetUnits(self.params.get('Units'))
         self.addNode(node)
 
-        node = year.YearNode(self, self.address, 'year', 'For the Year')
+        node = year.YearNode(self, self.address, 'year', 'Yearly Observations')
         node.SetUnits(self.params.get('Units'))
         self.addNode(node)
 
