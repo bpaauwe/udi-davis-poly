@@ -47,25 +47,41 @@ class MonthNode(polyinterface.Node):
         LOGGER.debug('Parse jdata for month data here')
         try:
             obs = jdata['davis_current_observation']
-            LOGGER.debug(obs)
-            self.update_driver('GV0', obs['temp_month_high_f'])
-            self.update_driver('GV1', obs['temp_month_low_f'])
-            self.update_driver('GV2', obs['dewpoint_month_high_f'])
-            self.update_driver('GV3', obs['dewpoint_month_low_f'])
-            self.update_driver('GV4', obs['heat_index_month_high_f'])
-            self.update_driver('GV5', obs['windchill_month_low_f'])
-            self.update_driver('GV8', obs['relative_humidity_month_high'])
-            self.update_driver('GV9', obs['relative_humidity_month_low'])
-            self.update_driver('GV10', obs['pressure_month_high_in'])
-            self.update_driver('GV11', obs['pressure_month_low_in'])
-            self.update_driver('GV12', obs['rain_month_in'])
-            self.update_driver('RAINRT', obs['rain_rate_month_high_in_per_hr'])
-            self.update_driver('SPEED', obs['wind_month_high_mph'])
-            self.update_driver('SOLRAD', obs['solar_radiation_month_high'])
-            self.update_driver('UV', obs['uv_index_month_high'])
-            self.update_driver('GV20', obs['et_month'])
+            if 'temp_month_high_f' in obs:
+                self.update_driver('GV0', obs['temp_month_high_f'])
+            if 'temp_month_low_f' in obs:
+                self.update_driver('GV1', obs['temp_month_low_f'])
+            if 'dewpoint_month_high_f' in obs:
+                self.update_driver('GV2', obs['dewpoint_month_high_f'])
+            if 'dewpoint_month_low_f' in obs:
+                self.update_driver('GV3', obs['dewpoint_month_low_f'])
+            if 'heat_index_month_high_f' in obs:
+                self.update_driver('GV4', obs['heat_index_month_high_f'])
+            if 'windchill_month_low_f' in obs:
+                self.update_driver('GV5', obs['windchill_month_low_f'])
+            if 'relative_humidity_month_high' in obs:
+                self.update_driver('GV8', obs['relative_humidity_month_high'])
+            if 'relative_humidity_month_low' in obs:
+                self.update_driver('GV9', obs['relative_humidity_month_low'])
+            if 'pressure_month_high_in' in obs:
+                self.update_driver('GV10', obs['pressure_month_high_in'])
+            if 'pressure_month_low_in' in obs:
+                self.update_driver('GV11', obs['pressure_month_low_in'])
+            if 'rain_month_in' in obs:
+                self.update_driver('GV12', obs['rain_month_in'])
+            if 'rain_rate_month_high_in_per_hr' in obs:
+                self.update_driver('RAINRT', obs['rain_rate_month_high_in_per_hr'])
+            if 'wind_month_high_mph' in obs:
+                self.update_driver('SPEED', obs['wind_month_high_mph'])
+            if 'solar_radiation_month_high' in obs:
+                self.update_driver('SOLRAD', obs['solar_radiation_month_high'])
+            if 'un_index_month_high' in obs:
+                self.update_driver('UV', obs['uv_index_month_high'])
+            if 'et_month' in obs:
+                self.update_driver('GV20', obs['et_month'])
         except Exception as e:
             LOGGER.error('Parse failure for month: ' + str(e))
+            LOGGER.debug(obs)
 
 
 
