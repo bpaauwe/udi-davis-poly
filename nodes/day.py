@@ -48,26 +48,43 @@ class DayNode(polyinterface.Node):
         LOGGER.debug('Parse jdata for day data here')
         try:
             obs = jdata['davis_current_observation']
-            LOGGER.debug(obs)
-            self.update_driver('GV0', obs['temp_day_high_f'])
-            self.update_driver('GV1', obs['temp_day_low_f'])
-            self.update_driver('GV2', obs['dewpoint_day_high_f'])
-            self.update_driver('GV3', obs['dewpoint_day_low_f'])
-            self.update_driver('GV4', obs['heat_index_day_high_f'])
-            self.update_driver('GV5', obs['windchill_day_low_f'])
-            self.update_driver('GV8', obs['relative_humidity_day_high'])
-            self.update_driver('GV9', obs['relative_humidity_day_low'])
-            self.update_driver('GV10', obs['pressure_day_high_in'])
-            self.update_driver('GV11', obs['pressure_day_low_in'])
-            self.update_driver('GV12', obs['rain_day_in'])
-            self.update_driver('RAINRT', obs['rain_rate_day_high_in_per_hr'])
-            self.update_driver('SPEED', obs['wind_day_high_mph'])
-            self.update_driver('GV13', obs['wind_ten_min_gust_mph'])
-            self.update_driver('SOLRAD', obs['solar_radiation_day_high'])
-            self.update_driver('UV', obs['uv_index_day_high'])
-            self.update_driver('GV20', obs['et_day'])
+            if 'temp_day_high_f' in obs:
+                self.update_driver('GV0', obs['temp_day_high_f'])
+            if 'temp_day_low_f' in obs:
+                self.update_driver('GV1', obs['temp_day_low_f'])
+            if 'dewpoint_day_high_f' in obs:
+                self.update_driver('GV2', obs['dewpoint_day_high_f'])
+            if 'dewpoint_day_low_f' in obs:
+                self.update_driver('GV3', obs['dewpoint_day_low_f'])
+            if 'heat_index_day_high_f' in obs:
+                self.update_driver('GV4', obs['heat_index_day_high_f'])
+            if 'windchill_day_low_f' in obs:
+                self.update_driver('GV5', obs['windchill_day_low_f'])
+            if 'relative_humidity_day_high' in obs:
+                self.update_driver('GV8', obs['relative_humidity_day_high'])
+            if 'relative_humidity_day_low' in obs:
+                self.update_driver('GV9', obs['relative_humidity_day_low'])
+            if 'pressure_day_high_in' in obs:
+                self.update_driver('GV10', obs['pressure_day_high_in'])
+            if 'pressure_day_low_in' in obs:
+                self.update_driver('GV11', obs['pressure_day_low_in'])
+            if 'rain_day_in' in obs:
+                self.update_driver('GV12', obs['rain_day_in'])
+            if 'rain_rate_day_high_in_per_hr' in obs:
+                self.update_driver('RAINRT', obs['rain_rate_day_high_in_per_hr'])
+            if 'wind_day_high_mph' in obs:
+                self.update_driver('SPEED', obs['wind_day_high_mph'])
+            if 'wind_ten_min_gust_mph' in obs:
+                self.update_driver('GV13', obs['wind_ten_min_gust_mph'])
+            if 'solar_radiation_day_high' in obs:
+                self.update_driver('SOLRAD', obs['solar_radiation_day_high'])
+            if 'uv_index_day_high' in obs:
+                self.update_driver('UV', obs['uv_index_day_high'])
+            if 'et_day' in obs:
+                self.update_driver('GV20', obs['et_day'])
         except Exception as e:
             LOGGER.error('Parse failure for day: ' + str(e))
+            LOGGER.debug(obs)
 
 
 
