@@ -160,26 +160,25 @@ class Controller(polyinterface.Controller):
         return st
 
     def parse_current_conditions(self, jdata):
-        LOGGER.debug(self.tags)
-        self.update_driver('CLITEMP', jdata[self.tags['temp']])
-        self.update_driver('CLIHUM', jdata[self.tags['humidity']])
-        self.update_driver('DEWPT', jdata[self.tags['dewpoint']])
-        self.update_driver('GV3', jdata[self.tags['heat_index']])
-        self.update_driver('GV4', jdata[self.tags['windchill']])
-        self.update_driver('BARPRES', jdata[self.tags['pressure']])
-        self.update_driver('WINDDIR', jdata[self.tags['wind_dir']])
-        if self.params.get('Units') == 'us':
-            self.update_driver('SPEED', jdata[self.tags['wind_speed']])
-        else:
-            speed = uom.kt2kph(float(jdata[self.tags['wind_speed']]))
-            self.update_driver('SPEED', speed)
-        # TODO:
-        # convert jdata['davis_current_observation']['pressure_tendency_string']
-        # to a number for a UOM 25 index for pressure trend.
-        #self.update_driver('GV16', trend)
-        trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
-        self.update_driver('GV16', trending)
-        self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
+        try:
+            self.update_driver('CLITEMP', jdata[self.tags['temp']])
+            self.update_driver('CLIHUM', jdata[self.tags['humidity']])
+            self.update_driver('DEWPT', jdata[self.tags['dewpoint']])
+            self.update_driver('GV3', jdata[self.tags['heat_index']])
+            self.update_driver('GV4', jdata[self.tags['windchill']])
+            self.update_driver('BARPRES', jdata[self.tags['pressure']])
+            self.update_driver('WINDDIR', jdata[self.tags['wind_dir']])
+            if self.params.get('Units') == 'us':
+                self.update_driver('SPEED', jdata[self.tags['wind_speed']])
+            else:
+                speed = uom.kt2kph(float(jdata[self.tags['wind_speed']]))
+            s   elf.update_driver('SPEED', speed)
+            trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
+            self.update_driver('GV16', trending)
+            self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
+        except Exception as e:
+            LOGGER.error('Parsing failed, current conditions: ' + str(e))
+            LOGGER.debug(jdata)
 
 
     def get_data(self):
