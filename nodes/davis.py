@@ -190,16 +190,21 @@ class Controller(polyinterface.Controller):
 
         try:
             c = requests.get(path)
+            LOGGER.debug('Query response = ' + str(c.status_code))
             jdata = c.json()
             c.close()
+        except Exception as e:
+            LOGGER.error('request failed: ' + str(e))
+            LOGGER.error(c.text)
+            return
 
-            #TODO: pass data on to parsers for each node
+        try:
             self.parse_current_conditions(jdata)
             self.nodes['day'].parse(jdata)
             self.nodes['month'].parse(jdata)
             self.nodes['year'].parse(jdata)
         except Exception as e:
-            LOGGER.error('request failed: ' + str(e))
+            LOGGER.error('parsing failed: ' + str(e))
 
 
     def set_logging_level(self, level=None):
