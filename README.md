@@ -56,5 +56,9 @@ The DavisWeatherLink nodeserver keeps track of the version number and when a pro
 
 # Release Notes
 
+- 1.0.2 04/05/2020
+   - Add a bunch of error checking.
+- 1.0.1 04/05/2020
+   - Add some additional error reporting to query failures.
 - 1.0.0 04/04/2020
    - Initial version published to github
