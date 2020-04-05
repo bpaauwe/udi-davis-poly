@@ -172,7 +172,7 @@ class Controller(polyinterface.Controller):
                 self.update_driver('SPEED', jdata[self.tags['wind_speed']])
             else:
                 speed = uom.kt2kph(float(jdata[self.tags['wind_speed']]))
-            s   elf.update_driver('SPEED', speed)
+                self.update_driver('SPEED', speed)
             trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
             self.update_driver('GV16', trending)
             self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
