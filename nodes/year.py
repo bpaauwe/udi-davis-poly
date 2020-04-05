@@ -48,7 +48,6 @@ class YearNode(polyinterface.Node):
         LOGGER.debug('Parse jdata for year data here')
         try:
             obs = jdata['davis_current_observation']
-            LOGGER.debug(obs)
             if 'temp_year_high_f' in obs:
                 self.update_driver('GV0', obs['temp_year_high_f'])
             if 'temp_year_low_f' in obs:
@@ -83,6 +82,7 @@ class YearNode(polyinterface.Node):
                 self.update_driver('GV20', obs['et_year'])
         except Exception as e:
             LOGGER.error('Parse failure for year: ' + str(e))
+            LOGGER.debug(obs)
 
 
 
