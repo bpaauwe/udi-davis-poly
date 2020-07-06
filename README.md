@@ -56,6 +56,8 @@ The DavisWeatherLink nodeserver keeps track of the version number and when a pro
 
 # Release Notes
 
+- 1.0.3 07/05/2020
+   - Remove call to set_hub_timestamp since it doesn't exist and causes error.
 - 1.0.2 04/05/2020
    - Add a bunch of error checking.
 - 1.0.1 04/05/2020
