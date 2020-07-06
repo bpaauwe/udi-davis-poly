@@ -106,7 +106,6 @@ class Controller(polyinterface.Controller):
     def query(self):
         for node in self.nodes:
             self.nodes[node].reportDrivers()
-        self.set_hub_timestamp()
 
     def discover(self, *args, **kwargs):
 
