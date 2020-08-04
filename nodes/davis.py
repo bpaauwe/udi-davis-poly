@@ -38,10 +38,10 @@ class Controller(polyinterface.Controller):
         self.tags = {}
         self.hb = 0
         self.params = node_funcs.NSParameters([{
-            'name': 'User',
+            'name': 'Device ID',
             'default': 'set me',
             'isRequired': True,
-            'notice': 'User ID must be set',
+            'notice': 'Device ID must be set',
             },
             {
             'name': 'Password',
@@ -175,6 +175,8 @@ class Controller(polyinterface.Controller):
             trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
             self.update_driver('GV16', trending)
             self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
+            # what about soil temperatures?
+            # temp_soil_1, temp_soil_2, temp_soil_3, temp_soil_4
         except Exception as e:
             LOGGER.error('Parsing failed, current conditions: ' + str(e))
             LOGGER.debug(jdata)
@@ -182,7 +184,7 @@ class Controller(polyinterface.Controller):
 
     def get_data(self):
         path = 'https://api.weatherlink.com/v1/NoaaExt.json?'
-        path += 'user=' + self.params.get('User')
+        path += 'user=' + self.params.get('Device ID')
         path += '&pass=' + self.params.get('Password')
         path += '&apiToken=' + self.params.get('API Token')
 

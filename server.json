@@ -14,8 +14,8 @@
     	{
     		"title": "Davis WeatherLink: A node server for Davis Weather Stations",
     		"author": "Bob Paauwe",
-    		"version": "1.0.3",
-    		"date": "July 06, 2020",
+    		"version": "1.0.4",
+    		"date": "August 04, 2020",
     		"source": "https://github.com/bpaauwe/udi-davis-poly",
             "license": "https://github.com/bpaauwe/udi-davis-poly/LICENSE"
 		}

@@ -26,8 +26,8 @@ The settings for this node are:
    * Sends a heartbeat as DON/DOF
 #### Token
    * Your token that allows access to the data at api.weatherlink.com
-#### User
-   * Your user id that allows access to the data at api.wetherlink.com
+#### Device ID
+   * Your device id (mac address without colons) that allows access to the data at api.wetherlink.com
 #### Password
    * Your password that allows access to the data at api.wetherlink.com
 #### Units
@@ -56,6 +56,8 @@ The DavisWeatherLink nodeserver keeps track of the version number and when a pro
 
 # Release Notes
 
+- 1.0.4 08/04/2020
+   - Changed "User" to "Device ID" as that represents what configuration is really needed.
 - 1.0.3 07/05/2020
    - Remove call to set_hub_timestamp since it doesn't exist and causes error.
 - 1.0.2 04/05/2020
