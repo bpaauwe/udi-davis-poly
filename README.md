@@ -56,6 +56,8 @@ The DavisWeatherLink nodeserver keeps track of the version number and when a pro
 
 # Release Notes
 
+- 1.0.5 08/17/2020
+   - Don't use the request results in the error message when request fails
 - 1.0.4 08/04/2020
    - Changed "User" to "Device ID" as that represents what configuration is really needed.
 - 1.0.3 07/05/2020
