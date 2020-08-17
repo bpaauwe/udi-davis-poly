@@ -195,7 +195,6 @@ class Controller(polyinterface.Controller):
             c.close()
         except Exception as e:
             LOGGER.error('request failed: ' + str(e))
-            LOGGER.error(c.text)
             return
 
         try:
