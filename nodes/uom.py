@@ -90,3 +90,15 @@ def get_uom(units):
 # convert knots to KPH
 def kt2kph(kt):
     return kt * 1.852
+# convert Farrenheit to Celcius
+def ftoc(far):
+    return round((far -32)/1.8,1)
+# convert pressure inHg to mb
+def inhgtomb(far):
+    return round(far*33.864,1)
+# convert inch to mm
+def inchtomm(far):
+	return round(far*25.4,1)
+# convert mp/h to km/h
+def mphtokmh(far):
+	return round(far*1.60934,1)

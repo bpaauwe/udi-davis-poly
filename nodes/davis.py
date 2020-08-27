@@ -169,14 +169,21 @@ class Controller(polyinterface.Controller):
             self.update_driver('WINDDIR', jdata[self.tags['wind_dir']])
             if self.params.get('Units') == 'us':
                 self.update_driver('SPEED', jdata[self.tags['wind_speed']])
+                self.update_driver('GV0', jdata['davis_current_observation']['temp_soil_1'])
+                self.update_driver('GV1', jdata['davis_current_observation']['temp_soil_2']) 
+                self.update_driver('GV2', jdata['davis_current_observation']['temp_soil_3']) 
+                self.update_driver('GV5', jdata['davis_current_observation']['temp_soil_4']) 
             else:
                 speed = uom.kt2kph(float(jdata[self.tags['wind_speed']]))
                 self.update_driver('SPEED', speed)
-            trending = trend.get_trend(jdata['davis_current_observation']['pressure_tendency_string'])
-            self.update_driver('GV16', trending)
-            self.update_driver('SOLRAD', jdata['davis_current_observation']['solar_radiation'])
-            # what about soil temperatures?
-            # temp_soil_1, temp_soil_2, temp_soil_3, temp_soil_4
+                soil1 = uom.ftoc(float(jdata['davis_current_observation']['temp_soil_1']))
+                self.update_driver('GV0', soil1)
+                soil2 = uom.ftoc(float(jdata['davis_current_observation']['temp_soil_2']))
+                self.update_driver('GV1', soil2)
+                soil3 = uom.ftoc3(float(jdata['davis_current_observation']['temp_soil_3']))
+                self.update_driver('GV2', soil3)
+                soil4 = uom.ftoc4(float(jdata['davis_current_observation']['temp_soil_4']))
+                self.update_driver('GV5', soil4)
         except Exception as e:
             LOGGER.error('Parsing failed, current conditions: ' + str(e))
             LOGGER.debug(jdata)
@@ -195,6 +202,7 @@ class Controller(polyinterface.Controller):
             c.close()
         except Exception as e:
             LOGGER.error('request failed: ' + str(e))
+            LOGGER.error(c.text)
             return
 
         try:
@@ -272,6 +280,10 @@ class Controller(polyinterface.Controller):
             {'driver': 'SPEED', 'value': 0, 'uom': 48},   # wind speed
             {'driver': 'GV16', 'value': 0, 'uom': 25},    # pressure trend
             {'driver': 'SOLRAD', 'value': 0, 'uom': 74},  # solar radiation
+            {'driver': 'GV0', 'value': 0, 'uom': 17},     # temp soil 1
+            {'driver': 'GV1', 'value': 0, 'uom': 17},     # temp soil 2 pool
+            {'driver': 'GV2', 'value': 0, 'uom': 17},     # temp soil 3 pool heater
+            {'driver': 'GV5', 'value': 0, 'uom': 17},     # temp soil 4
             ]
 
 
