@@ -180,9 +180,9 @@ class Controller(polyinterface.Controller):
                 self.update_driver('GV0', soil1)
                 soil2 = uom.ftoc(float(jdata['davis_current_observation']['temp_soil_2']))
                 self.update_driver('GV1', soil2)
-                soil3 = uom.ftoc3(float(jdata['davis_current_observation']['temp_soil_3']))
+                soil3 = uom.ftoc(float(jdata['davis_current_observation']['temp_soil_3']))
                 self.update_driver('GV2', soil3)
-                soil4 = uom.ftoc4(float(jdata['davis_current_observation']['temp_soil_4']))
+                soil4 = uom.ftoc(float(jdata['davis_current_observation']['temp_soil_4']))
                 self.update_driver('GV5', soil4)
         except Exception as e:
             LOGGER.error('Parsing failed, current conditions: ' + str(e))
@@ -281,8 +281,8 @@ class Controller(polyinterface.Controller):
             {'driver': 'GV16', 'value': 0, 'uom': 25},    # pressure trend
             {'driver': 'SOLRAD', 'value': 0, 'uom': 74},  # solar radiation
             {'driver': 'GV0', 'value': 0, 'uom': 17},     # temp soil 1
-            {'driver': 'GV1', 'value': 0, 'uom': 17},     # temp soil 2 pool
-            {'driver': 'GV2', 'value': 0, 'uom': 17},     # temp soil 3 pool heater
+            {'driver': 'GV1', 'value': 0, 'uom': 17},     # temp soil 2
+            {'driver': 'GV2', 'value': 0, 'uom': 17},     # temp soil 3
             {'driver': 'GV5', 'value': 0, 'uom': 17},     # temp soil 4
             ]
 
