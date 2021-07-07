@@ -15,6 +15,10 @@
             <st id="WINDDIR" editor="DEGREES" />
             <st id="SPEED" editor="SPEED" />
             <st id="SOLRAD" editor="SOLARRAD" />
+            <st id="GV0" editor="TEMPERATURE" />
+            <st id="GV1" editor="TEMPERATURE" />
+            <st id="GV2" editor="TEMPERATURE" />
+            <st id="GV5" editor="TEMPERATURE" />
 		</sts>
         <cmds>
            <sends>
